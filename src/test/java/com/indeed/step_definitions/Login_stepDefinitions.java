@@ -3,6 +3,7 @@ package com.indeed.step_definitions;
 import com.indeed.pages.LoginPage;
 import com.indeed.pages.ResetPasswordPage;
 import com.indeed.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,7 +18,7 @@ public class Login_stepDefinitions {
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        Driver.getDriver().get("https://qa.symund.com/");
+        Driver.getDriver().get("https://qa.symund.com");
     }
     @When("user enters correct {string} in the username box")
     public void user_enters_correct_in_the_username_box(String string) {
@@ -28,15 +29,19 @@ public class Login_stepDefinitions {
     public void user_enters_correct_in_the_password_box(String string) {
         loginPage.passwordBox.sendKeys(string);
     }
-    @When("user enters Log in button")
-    public void user_enters_log_in_button() {
+
+    @And("user clicks the login button")
+    public void userClicksTheLoginButton() {
         loginPage.loginButton.click();
 
     }
+
     @Then("user should be able to see the dashboard")
     public void user_should_be_able_to_see_the_dashboard() {
 
         Assert.assertTrue(Driver.getDriver().getTitle().contains("Dashboard"));
+
+        Driver.closeDriver();
     }
 
     @When("user enters wrong {string} in the username box")
@@ -47,6 +52,8 @@ public class Login_stepDefinitions {
     public void user_enters_wrong_in_the_password_box(String string) {
         loginPage.passwordBox.sendKeys(string);
     }
+
+
     @Then("Wrong username or password message should be displayed")
     public void wrong_username_or_password_message_should_be_displayed() {
         loginPage.wrongUsernameOrPasswordMessage.isDisplayed();
@@ -114,5 +121,6 @@ public class Login_stepDefinitions {
 
         Assert.assertEquals("Password",loginPage.passwordBox.getAttribute("placeholder") );
     }
+
 
 }

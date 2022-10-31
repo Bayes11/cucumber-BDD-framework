@@ -3,7 +3,7 @@ Feature: Symund login page functionality
 
 
 
-  Background:
+    Background: for the scenarios in the feature file, user is expected to be on login page
     Given user is on the login page
 
 
@@ -11,13 +11,14 @@ Feature: Symund login page functionality
   Scenario: User can log in with valid credentials
     When user enters correct "Employee111" in the username box
     And user enters correct "Employee123" in the password box
-    And user enters Log in button
+    And user clicks the login button
     Then user should be able to see the dashboard
 
     @SYMU-1648
     Scenario: User cannot login with invalid credentials
-      When user enters wrong "username" in the username box
-      And user enters wrong "password" in the password box
+      When user enters wrong "incorrect" in the username box
+      And user enters wrong "incorrect" in the password box
+      And user clicks the login button
       Then Wrong username or password message should be displayed
 
 
@@ -47,8 +48,8 @@ Feature: Symund login page functionality
 
            @SYMU-1652
            Scenario: User can see valid placeholders on Username and Password fields
-             When user can see the Username or email in the username box placeholder
-             And user can see the Password in the password box placeholder
+             When user can see the [Username or email] in the username box placeholder
+             And user can see the [Password] in the password box placeholder
 
 
 
