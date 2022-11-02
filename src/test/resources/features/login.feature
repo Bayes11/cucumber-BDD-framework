@@ -1,4 +1,4 @@
-@SYMU-1392
+@SYMU-1647
 Feature: Symund login page functionality
 
 
@@ -21,7 +21,7 @@ Feature: Symund login page functionality
       And user clicks the login button
       Then Wrong username or password message should be displayed
 
-
+    @SYMU-1648
     Scenario: User cannot login with invalid credentials
       When user keeps empty the username or the password
       Then Please fill out this field message should be displayed

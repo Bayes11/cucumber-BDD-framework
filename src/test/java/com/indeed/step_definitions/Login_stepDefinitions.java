@@ -62,11 +62,11 @@ public class Login_stepDefinitions {
 
     @When("user keeps empty the username or the password")
     public void user_keeps_empty_the_username_or_the_password() {
-        loginPage.usernameBox.sendKeys();
+        loginPage.usernameBox.sendKeys(" ");
     }
     @Then("Please fill out this field message should be displayed")
     public void please_fill_out_this_field_message_should_be_displayed() {
-        loginPage.passwordBox.sendKeys();
+        loginPage.passwordBox.sendKeys(" ");
     }
 
 

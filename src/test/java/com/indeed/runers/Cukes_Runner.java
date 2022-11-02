@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/indeed/step_definitions",
         dryRun = false,
-        tags = ""
+        tags = "@SYMU-1692"
 
 )
 

@@ -28,4 +28,5 @@ public class LoginPage {
 
     @FindBy (xpath = "//a[@class='toggle-password']")
     public WebElement eyeButton;
+
 }
